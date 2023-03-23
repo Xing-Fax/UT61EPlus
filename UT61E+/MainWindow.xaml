@@ -1,0 +1,77 @@
+﻿<Window x:Class="UT61E_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1200" Background="{x:Null}" AllowsTransparency="True" WindowStyle="None"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid Clip="M0,10 C0,4.4771525 4.4771525,0 10,0 L1190,0 C1195.5228,0 1200,4.4771525 1200,10 L1200,690 C1200,695.52285 1195.5228,700 1190,700 L10,700 C4.4771525,700 0,695.52285 0,690 z" Background="White">
+        <Rectangle Stroke="{Binding Background, ElementName=button}" RadiusY="9" RadiusX="9"/>
+        <Canvas x:Name="TitleFrame" Margin="0,0,0,670" MouseMove="TitleFrame_MouseMove" Background="#00000000">
+            <Rectangle Height="50" Stroke="Black" Width="1200" HorizontalAlignment="Center" VerticalAlignment="Top" RadiusX="10" RadiusY="10" StrokeThickness="0"/>
+            <Label Content=" UT61E+ 上位机" HorizontalAlignment="Left" Height="30" VerticalAlignment="Center" Width="160" VerticalContentAlignment="Center" FontSize="16" FontFamily="Microsoft YaHei UI" FontWeight="Bold" Canvas.Left="10.01" Canvas.Top="10.01"/>
+            <Canvas x:Name="ButtonGather" Height="50" Width="180" HorizontalAlignment="Center" Canvas.Left="1020" VerticalAlignment="Top">
+                <Button
+  Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+  HorizontalAlignment="Center"
+  ToolTip="最小化程序"
+  IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Canvas.Left="100" VerticalAlignment="Center" Width="30" Height="30" Canvas.Top="10">
+                    <materialDesign:PackIcon
+    Kind="Minus" Width="20" Height="20" />
+                </Button>
+                <Button x:Name="button"
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                    ToolTip="关闭程序"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Canvas.Left="140" Width="30" Height="30" HorizontalAlignment="Left" VerticalAlignment="Center" Canvas.Top="10">
+                    <materialDesign:PackIcon
+                        Kind="WindowClose" Width="20" Height="20" />
+                </Button>
+                <ToggleButton
+  Style="{StaticResource MaterialDesignSwitchToggleButton}"
+  ToolTip="顶置窗口" HorizontalAlignment="Center" Canvas.Top="16.223" VerticalAlignment="Center" Canvas.Left="57">
+                    <materialDesign:ToggleButtonAssist.OnContent>
+                        <materialDesign:PackIcon
+      Kind="Pin" />
+                    </materialDesign:ToggleButtonAssist.OnContent>
+                    <materialDesign:PackIcon
+    Kind="Pin"
+    RenderTransformOrigin=".5,.5">
+                        <materialDesign:PackIcon.RenderTransform>
+                            <RotateTransform
+        Angle="45" />
+                        </materialDesign:PackIcon.RenderTransform>
+                    </materialDesign:PackIcon>
+                </ToggleButton>
+            </Canvas>
+        </Canvas>
+        <Grid x:Name="MainInterface" Margin="0,50,0,0">
+            <Rectangle Stroke="Black" Margin="10,0,10,10" RadiusX="10" RadiusY="10"/>
+            <Button Content="Button" HorizontalAlignment="Left" Height="50" Margin="10,590,0,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
+            <Canvas Margin="35,25,705,470">
+                <materialDesign:Card
+  materialDesign:ShadowAssist.ShadowDepth="Depth2"
+  Padding="32"
+  Content="" Height="155" Width="460" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                <TextBlock x:Name="ValueS" TextWrapping="Wrap" Height="155" Width="390" FontFamily="Microsoft YaHei UI" FontSize="100" HorizontalAlignment="Left" VerticalAlignment="Center" TextAlignment="Left" Canvas.Left="70"><Run Language="zh-cn" Text="0.0000"/></TextBlock>
+                <Rectangle Height="9" Canvas.Left="10.562" Stroke="Black" Canvas.Top="67.812" Width="48" HorizontalAlignment="Center" VerticalAlignment="Center" StrokeThickness="0" Fill="Black"/>
+                <Rectangle x:Name="Minus" Height="9" Canvas.Left="10.562" Stroke="Black" Canvas.Top="67.812" Width="48" StrokeThickness="0" Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+            </Canvas>
+        </Grid>
+    </Grid>
+</Window>
