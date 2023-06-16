@@ -3,4 +3,6 @@
 
 ![image (3)](Snipaste_2023-06-16_16-59-01.png)
 
+库文件参考至 https://github.com/mwuertinger/ut61ep 
+
 Demo程序，仅做方案验证，尚未完善~
